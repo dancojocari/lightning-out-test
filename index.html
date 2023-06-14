@@ -1,26 +1,41 @@
 <html>
-  <script src="https://wabco--int.sandbox.my.site.com/MyDashboard/lightning/lightning.out.js"></script>
-  <div data-lightning-out="true"></div>
-  <script>
-    const appName = 'c:zfPartnerLocationFinder';
-    const componentName = 'c:zfPartnerLocationFinderMaster';
-    const lightningEndpoint = 'https://wabco--int.sandbox.my.site.com/MyDashboard';
-    const targetElement = document.querySelector('[data-lightning-out]');
-    const componentAttributes = {};
-    
-    $Lightning.use(
-      appName,
-      function() {
-        $Lightning.createComponent(
-          componentName,
-          componentAttributes,
-          targetElement,
-          function(cmp) {
-            console.log('Lightning component created');
-          }
-        );
-      },
-      lightningEndpoint
-    );
-  </script>
+  <head>
+    <style>
+      [data-lightning-out] {
+        max-width: 68rem;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://wabco--int.sandbox.my.site.com/MyDashboard/lightning/lightning.out.js"></script>
+    <div data-lightning-out="true"></div>
+    <script>
+      const appName = 'c:zfPartnerLocationFinder';
+      const componentName = 'c:zfPartnerLocationFinderMaster';
+      const lightningEndpoint = 'https://wabco--int.sandbox.my.site.com/MyDashboard';
+      const targetElement = document.querySelector('[data-lightning-out]');
+      const componentAttributes = {
+        themeColor: 'red'
+      };
+
+      $Lightning.use(
+        appName,
+        function() {
+          $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function(cmp) {
+              console.log('Lightning component created');
+            }
+          );
+        },
+        lightningEndpoint
+      );
+    </script>
+  </body>
 </html>
