@@ -18,8 +18,14 @@
       const componentName = 'c:zfPartnerLocationFinderMaster';
       const lightningEndpoint = 'https://wabco--int.sandbox.my.site.com/MyDashboard';
       const targetElement = document.querySelector('[data-lightning-out]');
+
+      const url = new URL(window.location.href);
+      const urlSearch = new URLSearchParams(url.search);
+      
+      const skus = urlSearch.getAll('sku');
+      
       const componentAttributes = {
-        themeColor: 'red'
+        sku: skus.at(0)  
       };
 
       $Lightning.use(
