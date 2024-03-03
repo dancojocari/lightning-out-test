@@ -11,23 +11,17 @@
     </style>
   </head>
   <body>
-    <script src="https://wabco--qa.sandbox.my.site.com/MyDashboard/lightning/lightning.out.js"></script>
+    <script src="https://www.wabco-customercentre.com/MyDashboard/lightning/lightning.out.js"></script>
     <div data-lightning-out="true"></div>
     <script>
       const appName = 'c:zfPartnerLocationFinder';
       const componentName = 'c:zfPartnerLocationFinderMaster';
-      const lightningEndpoint = 'https://wabco--qa.sandbox.my.site.com/MyDashboard';
+      const lightningEndpoint = 'https://www.wabco-customercentre.com/MyDashboard';
       const targetElement = document.querySelector('[data-lightning-out]');
-
-      const url = new URL(window.location.href);
-      const urlSearch = new URLSearchParams(url.search);
-      
-      const skus = urlSearch.getAll('sku');
-      
       const componentAttributes = {
-        sku: skus.at(0)  
+        locale: 'en'
       };
-
+    
       $Lightning.use(
         appName,
         function() {
@@ -36,12 +30,21 @@
             componentAttributes,
             targetElement,
             function(cmp) {
-              console.log('Lightning component created');
+              addAllEventListeners();	
             }
           );
         },
         lightningEndpoint
       );
+      
+      function addAllEventListeners() {
+        const cmp = document.querySelector('c-zf-partner-location-finder-master');
+        
+        cmp?.addEventListener('datalayerupdate', function(event) {
+    			window.dataLayer = window.dataLayer || [];
+    			window.dataLayer.push(event.detail);
+        });
+      }
     </script>
   </body>
 </html>
