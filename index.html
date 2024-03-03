@@ -17,7 +17,7 @@
       const startObserving = (domNode, classToLookFor) => {
         const observer = new MutationObserver(mutations => {
           mutations.forEach(function (mutation) {
-            console.log(Array.from(mutation.addedNodes));
+            // console.log(Array.from(mutation.addedNodes));
       
             const elementAdded = Array.from(mutation.addedNodes).some(
               element => {
@@ -30,7 +30,8 @@
             );
       
             if (elementAdded) {
-              console.log('The element was added to the DOM');
+              // console.log('The element was added to the DOM');
+              console.log(mutation);
             }
           });
         });
