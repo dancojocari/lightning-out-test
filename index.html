@@ -17,7 +17,7 @@
   <body>
     <script src="https://wabco--qa.sandbox.my.site.com/MyDashboard/lightning/lightning.out.js"></script>
     <div data-lightning-out="true" class="flex-ceter">
-      <img class="img" src="https://files.axshare.com/gsc/3H70BZ/10/e5/19/10e519d24d8240b2b96a830c924cf339/images/atoms/u559.svg?pageId=669ce77b-e451-4f7e-9fdd-2ef83835ce0f" alt="spinner">
+      <img class="spinner-img" src="https://files.axshare.com/gsc/3H70BZ/10/e5/19/10e519d24d8240b2b96a830c924cf339/images/atoms/u559.svg?pageId=669ce77b-e451-4f7e-9fdd-2ef83835ce0f" alt="spinner">
     </div>
     <script>      
       const appName = 'c:zfPartnerLocationFinder';
@@ -37,9 +37,7 @@
             componentAttributes,
             targetElement,
             function(cmp) {
-              setTimeout(() => {
-                document.querySelector('.img').remove();
-              }, 100);
+              document.querySelector('.spinner-img').remove();
               addAllEventListeners();	
             }
           );
