@@ -8,11 +8,15 @@
         padding-left: 15px;
         margin: 0 auto !important;
       }
+      .hide {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <script src="https://wabco--qa.sandbox.my.site.com/MyDashboard/lightning/lightning.out.js"></script>
-    <div data-lightning-out="true"></div>
+    <img class="img" src="https://files.axshare.com/gsc/3H70BZ/10/e5/19/10e519d24d8240b2b96a830c924cf339/images/atoms/u559.svg?pageId=669ce77b-e451-4f7e-9fdd-2ef83835ce0f" alt="spinner">
+    <div data-lightning-out="true" class="hide"></div>
     <script>      
       const appName = 'c:zfPartnerLocationFinder';
       const componentName = 'c:zfPartnerLocationFinderMaster';
@@ -31,6 +35,8 @@
             componentAttributes,
             targetElement,
             function(cmp) {
+              document.querySelector('.img').classList.add('hide');
+              document.querySelector('[data-lightning-out]').classList.remove('hide');
               addAllEventListeners();	
             }
           );
