@@ -37,7 +37,9 @@
             componentAttributes,
             targetElement,
             function(cmp) {
-              document.querySelector('.img').remove();
+              setTimeout(() => {
+                document.querySelector('.img').remove();
+              }, 100);
               addAllEventListeners();	
             }
           );
